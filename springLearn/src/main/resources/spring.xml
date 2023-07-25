@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="com.lulu.spring.bean.Country" id="country" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="countryId" value="x001"/>
+        <property name="countryName" value="sun"/>
+        <property name="regionId" value="1"/>
+    </bean>
+    <!--<bean class="bean.com.lulu.spring.Country" id="country2">
+        <constructor-arg name="countryId" value="x002"/>
+        <constructor-arg name="countryName" value="moon"/>
+        <constructor-arg name="regionId" value="2"/>
+    </bean>-->
+    <!--
+    1.null
+    2.外部bean注入
+    3.map
+    4.list
+    等等
+    -->
+
+    <bean class="com.lulu.spring.factory.MyFactoryBean" id="factory"/>
+
+
+
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="driverClassName" value="${prop.driverClass}"/>
+        <property name="url" value="${prop.url}"/>
+        <property name="username" value="${prop.userName}"/>
+        <property name="password" value="${prop.password}"/>
+    </bean>
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+</beans>
