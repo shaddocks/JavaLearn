@@ -17,7 +17,17 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Country getCountryById(int id) {
+    public Country getCountryById(String id) {
         return countryDao.getCountryById(id);
+    }
+
+    @Override
+    public Integer deleteCountryById(String id) {
+        return countryDao.deleteCountryById(id);
+    }
+
+    @Override
+    public Integer insertCountry(Country country) {
+        return countryDao.insertCountry(country);
     }
 }

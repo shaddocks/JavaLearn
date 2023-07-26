@@ -14,6 +14,6 @@ public class AnnotationTest {
 
     @Test
     public void test01() {
-        System.out.println(controller.getCountryById(1));
+        System.out.println(controller.getCountryById("AR"));
     }
 }

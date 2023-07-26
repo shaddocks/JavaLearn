@@ -101,6 +101,12 @@
                 <artifactId>spring-aop</artifactId>
                 <version>6.0.6</version>
             </dependency>
+            <!--spring 事务-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>6.0.6</version>
+            </dependency>
             <!--spring对junit的支持相关依赖-->
             <dependency>
                 <groupId>org.springframework</groupId>

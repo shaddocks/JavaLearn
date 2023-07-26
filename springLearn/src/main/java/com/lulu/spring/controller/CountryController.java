@@ -17,7 +17,15 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    public Country getCountryById(int id) {
+    public Country getCountryById(String id) {
         return countryService.getCountryById(id);
+    }
+
+    public Integer deleteCountryById(String id) {
+        return countryService.deleteCountryById(id);
+    }
+
+    public Integer insertCountry(Country country) {
+        return countryService.insertCountry(country);
     }
 }

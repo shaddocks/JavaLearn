@@ -3,12 +3,14 @@ package com.lulu.spring.bean;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.stereotype.Component;
 
 @Component
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Accessors(chain = true)
 public class Country {
     private String countryId;
     private String countryName;
