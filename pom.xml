@@ -113,6 +113,12 @@
                 <artifactId>spring-test</artifactId>
                 <version>6.0.6</version>
             </dependency>
+            <!--netty-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>4.1.95.Final</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
