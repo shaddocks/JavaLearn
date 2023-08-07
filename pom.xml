@@ -12,6 +12,7 @@
         <module>dailyLearn</module>
         <module>tools</module>
         <module>springLearn</module>
+        <module>webLearn</module>
     </modules>
 
     <dependencyManagement>
