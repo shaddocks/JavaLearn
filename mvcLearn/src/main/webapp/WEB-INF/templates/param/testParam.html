@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>param</title>
+</head>
+<body>
+    <a th:href="@{/param/testServletAPI(username='root', password=123456)}">ServletAPI</a>
+    <br/>
+    <a th:href="@{/param/testControllerParam(username='root', password=123456)}">ControllerParam</a>
+    <br/>
+    <!---->
+    <form th:action="@{/param/testControllerParam}" method="get">
+        name: <label>
+        <input type="text" name="username"/>
+    </label><br/>
+        password: <label>
+        <input type="password" name="password"/>
+    </label><br/>
+        hobbies: <label>
+        <input type="checkbox" name="a"/> c
+    </label>
+        <label>
+            <input type="checkbox" name="b"/> b
+        </label><br/>
+        <label>
+            <input type="checkbox" name="c"/> c
+        </label><br/>
+        <input type="submit" value="形参获取参数">
+    </form>
+
+    <form th:action="@{/param/testControllerPOJO}" method="post">
+        <label>
+            username: <input type="text" name="username"><br/>
+            password: <input type="password" name="password"><br/>
+            sex: <input type="radio" name="sex" value="male">male
+                 <input type="radio" name="sex" value="female">female<br/>
+            age: <input type="text" name="age"><br/>
+            email: <input type="text" name="email"><br/>
+        </label>
+        <input type="submit" value="使用实体类接收对象">
+    </form>
+</body>
+</html>

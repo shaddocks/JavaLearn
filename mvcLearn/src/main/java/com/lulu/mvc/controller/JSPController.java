@@ -1,0 +1,9 @@
+package com.lulu.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/JSP")
+public class JSPController {
+}

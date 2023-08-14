@@ -6,6 +6,10 @@
     </writeAnnotations>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/mvcLearn" />
+    <file type="web" url="file://$PROJECT_DIR$/webLearn" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

@@ -13,6 +13,7 @@
         <module>tools</module>
         <module>springLearn</module>
         <module>webLearn</module>
+        <module>mvcLearn</module>
     </modules>
 
     <dependencyManagement>
@@ -78,7 +79,7 @@
             <dependency>
                 <groupId>org.thymeleaf</groupId>
                 <artifactId>thymeleaf</artifactId>
-                <version>3.0.15.RELEASE</version>
+                <version>3.1.2.RELEASE</version>
             </dependency>
             <!--spring核心依赖-->
             <dependency>
@@ -113,6 +114,24 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>6.0.6</version>
+            </dependency>
+            <!--SpringMVC依赖-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>6.0.11</version>
+            </dependency>
+            <!--Spring5和Thymeleaf整合包-->
+            <dependency>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring6</artifactId>
+                <version>3.1.2.RELEASE</version>
+            </dependency>
+            <!--日志-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.4.7</version>
             </dependency>
             <!--netty-->
             <dependency>

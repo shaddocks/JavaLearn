@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!--thymeleaf的命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <!--这里会解析，并加上上下文路径-->
+    <a th:href="@{/hello/target(username='admin', password=123)}">hello world</a>
+    <form th:action="@{/hello/target}" method="post">
+        <input type="submit" value="测试RequestMapping默认method">
+    </form>
+    <a th:href="@{/hello/restfulMethod/123/lulu}">测试占位符</a>
+</body>
+</html>
