@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lulu.mybatis.mapper.SQLMapper">
+    
+    <resultMap id="student" type="com.lulu.mybatis.bean.Student">
+        <id property="id" column="id"/>
+        <result property="firstName" column="first_name"/>
+        <result property="lastName" column="last_name"/>
+        <result property="age" column="age"/>
+        <result property="gender" column="gender"/>
+        <result property="desc" column="desc"/>
+    </resultMap>
+
+    <resultMap id="empOne" type="com.lulu.mybatis.bean.Emp">
+        <id property="empId" column="emp_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="dept.deptId" column="dept_id"/>
+        <result property="dept.deptName" column="dept_name"/>
+    </resultMap>
+
+    <resultMap id="empTwo" type="com.lulu.mybatis.bean.Emp">
+        <id property="empId" column="emp_id"/>
+        <result property="deptId" column="dept_id"/>
+        <association property="dept" javaType="com.lulu.mybatis.bean.Dept">
+            <id property="deptId" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+        </association>
+    </resultMap>
+
+    <select id="getStudentByLike" resultMap="student">
+        select * from student where last_name like concat('%', #{lastName}, '%')
+    </select>
+
+    <select id="getEmpByIdOne" resultMap="empOne">
+        select * from emp left join dept on emp.dept_id = dept.dept_id
+        where emp.emp_id = #{id}
+    </select>
+
+    <select id="getEmpByIdTwo" resultMap="empOne">
+        select * from emp left join dept on emp.dept_id = dept.dept_id
+        where emp.emp_id = #{id}
+    </select>
+
+</mapper>

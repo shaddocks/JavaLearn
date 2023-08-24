@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lulu.mybatis.mapper.StudentTestMapper">
+    <insert id="insertStudent">
+        insert into student(first_name, last_name, id, gender, age, `desc`)
+        values ('lu', 'lu', '20170910', 1, 25, 'nothing')
+    </insert>
+
+    <update id="updateStudent">
+        update student set last_name = '123' where id = '20170910'
+    </update>
+
+    <delete id="deleteStudent">
+        delete from student where id = '20170910'
+    </delete>
+
+    <!--User getUserById();-->
+    <!--
+        查询功能的标签必须设置resultType或者resultMap
+        resultType：设置默认的映射关系
+        resultMap：设置自定义的映射关系（字段名和表头不一样）
+    -->
+    <select id="getStudentById" resultType="com.lulu.mybatis.bean.Student">
+        select * from student where id = '20170910'
+    </select>
+
+    <select id="getAllStudent" resultType="com.lulu.mybatis.bean.Student">
+        select * from student
+    </select>
+
+</mapper>

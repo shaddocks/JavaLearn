@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lulu.mybatis.mapper.DynamicSQLMapper">
+
+    <resultMap id="emp" type="com.lulu.mybatis.bean.Emp">
+        <id property="empId" column="emp_id"/>
+        <result property="deptId" column="dept_id"/>
+    </resultMap>
+
+    <!--if-->
+    <!--<select id="getEmpByCondition" resultMap="emp">
+        select *
+        from emp where 1 = 1
+        <if test="deptId != null and deptId != ''">
+            and dept_id = #{deptId}
+        </if>
+    </select>-->
+
+    <!--<select id="getEmpByCondition" resultMap="emp">
+        select * from emp
+        <where>
+            <if test="deptId != null and deptId != ''">
+                and dept_id = #{deptId}
+            </if>
+        </where>
+    </select>-->
+
+    <select id="getEmpByCondition" resultMap="emp">
+        select * from emp
+        <trim prefix="where" suffixOverrides="and|or">
+            <if test="deptId != null and deptId != ''">
+                dept_id = #{deptId} and
+            </if>
+        </trim>
+    </select>
+
+    <select id="getEmpByChoose" resultMap="emp">
+        select * from emp
+        <where>
+            <choose>
+                <when test="deptId != null">
+                    and dept_id = #{deptId}
+                </when>
+                <!--when-->
+                <otherwise>
+                    and dept_id = '001'
+                </otherwise>
+            </choose>
+            and emp_id = #{empId}
+        </where>
+    </select>
+
+    <select id="getEmpsByList" resultMap="emp">
+        select * from emp
+        <where>
+            emp_id in
+            <foreach collection="ids" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
+
+    <sql id="empColumns">dept_id</sql>
+    <select id="getAllEmpNameAndAge" resultMap="emp">
+        select <include refid="empColumns"/> from emp
+    </select>
+
+
+</mapper>

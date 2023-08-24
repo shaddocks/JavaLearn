@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <form th:action="@{/converter/testRequestBody}" method="post">
+        <label>
+            <input name="username" type="text"><br/>
+            <input name="password" type="text"><br/>
+            <input type="submit" value="测试@RequestBody">
+        </label>
+    </form>
+    <form th:action="@{/converter/testRequestEntity}" method="post">
+        <label>
+            <input name="username" type="text"><br/>
+            <input name="password" type="text"><br/>
+            <input type="submit" value="测试@RequestBody">
+        </label>
+    </form>
+    <a th:href="@{/converter/testResponse}">测试通过Servlet的API Response响应浏览器</a><br/>
+    <a th:href="@{/converter/testResponseBody}">测试通过responseBody响应浏览器</a><br/>
+    <div id="app">
+        <a th:href="@{/converter/testAjax}" @click="testAjax">testAjax</a><br>
+    </div>
+
+    <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el:"#app",
+            methods:{
+                testAjax:function (event) {
+                    axios({
+                        method:"post",
+                        url:event.target.href,
+                        params:{
+                            username:"admin",
+                            password:"123456"
+                        }
+                    }).then(function (response) {
+                        alert(response.data);
+                    });
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+    <a th:href="@{/file/download}">文件下载</a>
+    <form th:action="@{/file/upload}" method="post" enctype="multipart/form-data">
+        "photo": <input type="file" name="photo"><br/>
+        <input type="submit" value="上传"/>
+    </form>
+</body>
+</html>
