@@ -19,6 +19,15 @@
         </init-param>
         <!--将DispatcherServlet初始化时间提前到服务器启动时-->
         <load-on-startup>1</load-on-startup>
+        <!--上传文件配置-->
+        <multipart-config>
+            <!-- 临时文件的目录 默认是Servlet容器的临时目录-->
+            <!--<location>static</location>-->
+            <!-- 上传文件最大2M -->
+            <max-file-size>2097152</max-file-size>
+            <!-- 上传文件整个请求不超过4M -->
+            <max-request-size>4194304</max-request-size>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>

@@ -35,8 +35,16 @@
         <property name="staticField" value="org.thymeleaf.templatemode.TemplateMode.HTML" />
     </bean>
 
+    <!--必须通过文件解析器的解析才能将文件转换为MultipartFile对象-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
+
+
     <!--设置view-controller-->
+    <!--若不设置注解驱动，则其他注解全部失效-->
 <!--    <mvc:view-controller path="view/" view-name="view/index"/>-->
+    <mvc:view-controller path="restful/toAdd" view-name="restful/employee_add"/>
+    <mvc:view-controller path="converter" view-name="converter/index"/>
+    <mvc:view-controller path="interceptor" view-name="interceptor/index"/>
 
     <!--解析jsp文件，直接使用转发视图，属性好像不对-->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceView">
@@ -67,4 +75,20 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <!--对所有请求进行拦截-->
+        <!--<bean class="com.lulu.mvc.interceptor.FirstInterceptor"/>-->
+        <!--或者是采用这种方式进行配置-->
+        <!--<ref bean="firstInterceptor"/>-->
+
+        <!--以上都是对所有请求进行拦截，下面这个可以设置拦截路径-->
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptor/*"/>
+            <!--*仅一层目录，但是**则是所有-->
+            <mvc:mapping path="/converter/*"/>
+            <!--<mvc:exclude-mapping path="/"/>-->
+            <bean class="com.lulu.mvc.interceptor.FirstInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
