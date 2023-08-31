@@ -10,6 +10,8 @@
     </parent>
 
     <artifactId>tools</artifactId>
+    <groupId>com.lulu.tools</groupId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>

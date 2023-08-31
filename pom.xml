@@ -15,6 +15,7 @@
         <module>webLearn</module>
         <module>mvcLearn</module>
         <module>mybatisLearn</module>
+        <module>mvcAnnotationLearn</module>
     </modules>
 
     <dependencyManagement>
